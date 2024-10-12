@@ -1,0 +1,22 @@
+1)create sb project
+2)complete properties and pom
+3)create scripts
+4)create db in workbench
+5)run app from main
+6)follow link: [http://localhost:8080/api/1.0/movies]
+
+* maven constructions:
+7)add flyway-maven-plugin
+8)supply configuration for database(url, user, password)
+9)supply configuration for path where is migration log is (db.migration)
+10)now we are ready to run by command-line using maven: ./mvnw flyway:migrate
+
+* maven database properties (better practice to pass username and password locally in command line)
+11)create properties:
+        <database.username>YOUR_TEST_USERNAME</database.username> <!-- Keep this for local reference -->
+        <database.password>YOUR_TEST_PASSWORD</database.password> <!-- Keep this for local reference -->
+12)use this properties in flyway-plugin configuration db connection:
+        <user>${database.username}</user>
+        <password>${database.password}</password>
+13)now we can use our own (hidden properties) by command-line: ./mvnw -D database.username=root -D database.password=11111111 flyway:migrate
+
