@@ -1,0 +1,1 @@
+insert into dev(name, age) values ('Johnny', 29);
